@@ -24,7 +24,6 @@ def serial_read():
     if ser.in_waiting > 0:
         serial_data = ser.readline()
         if serial_data != b'\r\n':
-            serial_data = serial_data.strip(b'\r\n')
             return serial_data
     else:
         return old_data

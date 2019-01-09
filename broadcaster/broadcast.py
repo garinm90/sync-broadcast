@@ -9,7 +9,8 @@ except:
     pass
 
 new_line = "\n".encode('utf-8')
-sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
+s = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_UDP)
+
 #sock.bind(('', 32320))
 #sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 #mreq = struct.pack("=4sl", socket.inet_aton("224.51.105.104"), socket.INADDR_ANY)
@@ -17,9 +18,8 @@ sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
 
 
 while True:
-    data, address  = sock.recvfrom(65565)
-    if address == '192.168.1.143':
+    data, address = s.recvfrom(1024)
+    if address == ('192.168.1.143', 0):
+        ser.write(data + new_line)
         print(data)
-    #ser.write(data + new_line)
-    #print(data)
 
