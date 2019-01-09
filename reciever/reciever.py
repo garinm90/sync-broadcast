@@ -17,6 +17,7 @@ except:
 def send_data_to_socket(data):
     if data != old_data:
         sock.sendto(data, (UDP_IP, UDP_PORT))
+        print(data)
         return data
 
 def serial_read():
