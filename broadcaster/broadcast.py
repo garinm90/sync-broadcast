@@ -1,6 +1,7 @@
 import socket
 import struct
 import serial
+import time
 
 ser = serial.Serial('/dev/ttyUSB0', 115200)
 
@@ -16,4 +17,5 @@ while True:
     data  = sock.recv(10240)
     ser.write(data + new_line)
     print(data)
+    time.sleep(15)
 
