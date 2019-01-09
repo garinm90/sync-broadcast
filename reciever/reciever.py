@@ -23,6 +23,8 @@ def serial_read():
     if ser.in_waiting > 0:
         serial_data = ser.readline()
         return serial_data
+    else:
+        return old_data
 
 while True:
     new_data = serial_read()
