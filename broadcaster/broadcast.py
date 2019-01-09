@@ -17,5 +17,5 @@ while True:
     data  = sock.recv(10240)
     ser.write(data + new_line)
     print(data)
-    time.sleep(15)
+    time.sleep(1)
 

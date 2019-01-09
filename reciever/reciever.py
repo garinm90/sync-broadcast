@@ -23,12 +23,15 @@ def serial_read():
     ser.flush()
     if ser.in_waiting > 0:
         serial_data = ser.readline()
-        print(serial_data)
-        return serial_data
+        if serial_data != b'\r\n':
+            print(serial_data)
+            return serial_data
     else:
         return old_data
 
 while True:
     new_data = serial_read()
     old_data = send_data_to_socket(new_data)
+    print('Old data: '.format(old_data))
+    print('New data: '.format(new_data))
     
