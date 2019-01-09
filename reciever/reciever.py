@@ -20,13 +20,14 @@ def send_data_to_socket(data):
         return data
 
 def serial_read():
-    # read data from serial port
-    serial_data = ser.readline()
-    return serial_data
+    if ser.in_waiting() > 0:
+        serial_data = ser.readline()
+        return serial_data
 
 while True:
     new_data = serial_read()
     old_data = send_data_to_socket(new_data)
-    print(f'New data: {new_data}')
-    print(f'Old data: {old_data}')
+    print('New data: {}'.format(new_data))
+    # read data from serial port
+    print('Old data: {}'.format(old_data))
     
