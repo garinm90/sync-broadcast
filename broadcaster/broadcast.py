@@ -4,7 +4,7 @@ import serial
 
 ser = serial.Serial('/dev/ttyUSB0', 115200)
 
-
+new_line = "\n".encode('utf-8')
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
 sock.bind(('', 32320))
 sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
@@ -14,5 +14,6 @@ sock.setsockopt(socket.IPPROTO_IP, socket.IP_ADD_MEMBERSHIP, mreq)
 
 while True:
     data  = sock.recv(10240)
-    ser.write(data + "\n")
+    ser.write(data + new_line)
+    print(data + new_line)
 
