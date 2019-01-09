@@ -5,8 +5,7 @@ import socket
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 UDP_IP = "127.0.0.1"
 UDP_PORT = 32320
-old_data = ''
-
+old_data = ""
 
 
 
@@ -18,7 +17,7 @@ except:
 def send_data_to_socket(data):
     if data != old_data:
         sock.sendto(data, (UDP_IP, UDP_PORT))
-        old_data = data
+        return data
 
 def serial_read():
     # read data from serial port
@@ -27,5 +26,5 @@ def serial_read():
 
 while True:
     new_data = serial_read()
-    send_data_to_socket(new_data)
-    print(old_data)
+    old_data = send_data_to_socket(new_data)
+    
