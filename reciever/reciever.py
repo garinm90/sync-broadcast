@@ -11,3 +11,6 @@ def serial_read():
     # read data from serial port
     serial_data = ser.readline()
     repr(serial_data)
+
+while True:
+    serial_read()
