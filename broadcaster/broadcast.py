@@ -3,7 +3,10 @@ import struct
 import serial
 import time
 
-ser = serial.Serial('/dev/ttyUSB0', 115200)
+try:
+    ser = serial.Serial('/dev/ttyUSB0', 115200)
+except:
+    pass
 
 new_line = "\n".encode('utf-8')
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
@@ -14,7 +17,7 @@ sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
 
 
 while True:
-    data, address  = sock.recvfrom_into(10240)
+    data, address  = sock.recvfrom(65565)
     if address == '192.168.1.143':
         print(data)
     #ser.write(data + new_line)
