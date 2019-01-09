@@ -15,5 +15,5 @@ sock.setsockopt(socket.IPPROTO_IP, socket.IP_ADD_MEMBERSHIP, mreq)
 while True:
     data  = sock.recv(10240)
     ser.write(data + new_line)
-    print(data + new_line)
+    print(data)
 
