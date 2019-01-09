@@ -20,7 +20,7 @@ def send_data_to_socket(data):
         return data
 
 def serial_read():
-    if ser.in_waiting() > 0:
+    if ser.in_waiting > 0:
         serial_data = ser.readline()
         return serial_data
 
