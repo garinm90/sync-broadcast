@@ -2,4 +2,4 @@
 
 Captures UDP packet data on a specified port.
 
-Uses serial to send the data to RF Recieve for transmission.
+Uses serial to send the data to RF Reciever for transmission.
