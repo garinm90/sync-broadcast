@@ -27,6 +27,6 @@ def serial_read():
 while True:
     new_data = serial_read()
     old_data = send_data_to_socket(new_data)
-    print(new_data)
-    print(old_data)
+    print(f'New data: {new_data}')
+    print(f'Old data: {old_data}')
     
